@@ -34,57 +34,69 @@ struct CheckpointView: View {
             }
             
             ScrollView{
-                ZStack{
-                    Rectangle()
-                        .frame(width: 350, height: 100)
-                        .cornerRadius(40)
-                        .foregroundStyle(Color(.lightGreen))
-                    Text("Acid Rain")
-                        .font(.title)
-                        .bold()
-                    
-                }
-                .padding(.top)
-                ZStack{
-                    Rectangle()
-                        .frame(width: 350, height: 100)
-                        .cornerRadius(40)
-                        .foregroundStyle(Color(.lightBlue))
-                    Text("Catch Foam")
-                        .font(.title)
-                        .bold()
-                    
-                }
-                ZStack{
-                    Rectangle()
-                        .frame(width: 350, height: 100)
-                        .cornerRadius(40)
-                        .foregroundStyle(Color(.lightGreen))
-                    Text("Incinerator")
-                        .font(.title)
-                        .bold()
-                    
-                }
-                ZStack{
-                    Rectangle()
-                        .frame(width: 350, height: 100)
-                        .cornerRadius(40)
-                        .foregroundStyle(Color(.lightBlue))
-                    Text("News")
-                        .font(.title)
-                        .bold()
-                    
-                }
-                ZStack{
-                    Rectangle()
-                        .frame(width: 350, height: 100)
-                        .cornerRadius(40)
-                        .foregroundStyle(Color(.lightGreen))
-                    Text("Pipes")
-                        .font(.title)
-                        .bold()
-                    
-                }
+               
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 350, height: 100)
+                            .cornerRadius(40)
+                            .foregroundStyle(Color(.lightGreen))
+                        
+                        NavigationLink{
+                            AcidFoamView()
+                        } label: {
+                            Label("Acid Rain", systemImage: "cloud.rain")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.black)
+                            
+                        }
+                        
+                  
+                            
+                        
+                    }
+                
+                    .padding(.top)
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 350, height: 100)
+                            .cornerRadius(40)
+                            .foregroundStyle(Color(.lightBlue))
+                        Text("Catch Foam")
+                            .font(.title)
+                            .bold()
+                        
+                    }
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 350, height: 100)
+                            .cornerRadius(40)
+                            .foregroundStyle(Color(.lightGreen))
+                        Text("Incinerator")
+                            .font(.title)
+                            .bold()
+                        
+                    }
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 350, height: 100)
+                            .cornerRadius(40)
+                            .foregroundStyle(Color(.lightBlue))
+                        Text("News")
+                            .font(.title)
+                            .bold()
+                        
+                    }
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 350, height: 100)
+                            .cornerRadius(40)
+                            .foregroundStyle(Color(.lightGreen))
+                        Text("Pipes")
+                            .font(.title)
+                            .bold()
+                        
+                    }
                 
             }
             .mask {
