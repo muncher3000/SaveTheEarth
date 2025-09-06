@@ -15,26 +15,22 @@ struct AcidFoamView: View {
     
     var body: some View {
         ZStack{
+            
+            Image("CityBackground")
+                .resizable()
+                .scaledToFit()
+                .frame(width:500)
+                .padding(.top, 450)
+            
             SpriteView(scene: RainFall(), options: [.allowsTransparency])
-            VStack{
-                
-                Image("CityBackground")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:500)
-                    .padding(.top, 450)
-                
-                
-            }
-            
-            Rectangle()
-                .fill(Color.white)
-                .frame(width: 400, height: 100)
-            
-            
-            
+ 
             if shown == true {
                 ZStack{
+                    Rectangle()
+                        .frame(width: 390, height: 100)
+                        .foregroundStyle(.gray)
+                        .opacity(0.5)
+                        .cornerRadius(20)
                     VStack{
                         Button{
                             shown = false
@@ -52,13 +48,12 @@ struct AcidFoamView: View {
                         Text("Acid rain will fall, use the umbrella to block it!")
                     }
                     
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 370, height: 150)
-                        .cornerRadius(20)
-                        .opacity(0.3)
+                    
                 }
+                .padding(.bottom, 100)
             }
+                
+       
             if umbrellaShown == true {
                 Image("Umbrella")
                     .resizable()
@@ -79,10 +74,11 @@ struct AcidFoamView: View {
                 }
                 .padding(.top, 740)
             }
-            SpriteView(scene: RainFall(), options: [.allowsTransparency])
+            
 
         }
         .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea()
         
     }
     func resetUmbrella() {
@@ -113,3 +109,5 @@ class RainFall : SKScene {
         node.particlePositionRange.dx = UIScreen.main.bounds.width
     }
 }
+
+// https://www.youtube.com/watch?v=_Ssae8NLHUs rainfall landing on umbrella 4 min 30 s

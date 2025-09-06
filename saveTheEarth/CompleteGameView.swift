@@ -10,8 +10,11 @@ import SpriteKit
 
 struct CompleteGameView: View {
     var body: some View {
-        Text("Congrats!")
-        SpriteView(scene: Fireworks(), options: [.allowsTransparency])
+        ZStack{
+            SpriteView(scene: Fireworks(), options: [.allowsTransparency])
+            
+            Text("Congrats!")
+        }
     }
 }
 
