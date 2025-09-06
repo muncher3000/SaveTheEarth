@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PipesView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Pipes")
+            .bold()
+            .font(.largeTitle)
     }
 }
 

@@ -42,7 +42,7 @@ struct CheckpointView: View {
                             .foregroundStyle(Color(.lightGreen))
                         
                         NavigationLink{
-                            AcidFoamView()
+                            CatchFoamView()
                         } label: {
                             Label("Acid Rain", systemImage: "cloud.rain")
                                 .font(.title)
@@ -51,7 +51,7 @@ struct CheckpointView: View {
                             
                         }
                         
-                  
+                        
                             
                         
                     }
@@ -113,5 +113,7 @@ struct CheckpointView: View {
 }
 
 #Preview {
-    CheckpointView()
+    NavigationView{
+        CheckpointView()
+    }
 }

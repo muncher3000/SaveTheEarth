@@ -13,6 +13,7 @@ struct CloudView: View {
     var body: some View {
         Image("Cloud")
             .transition(.slide)
+        
     }
 }
 

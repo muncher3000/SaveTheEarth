@@ -17,23 +17,23 @@ struct ContentView: View {
                     .scaledToFit()
                     .padding()
             }
-                if isEarthShow == false {}
-                Button {
-                    withAnimation(.easeInOut(duration: 3)) {
-                        if isEarthShow == true {
-                            isEarthShow = false
-                            Clouds = true
-                        }
+            if isEarthShow == false {}
+            Button {
+                withAnimation(.easeInOut(duration: 3)) {
+                    if isEarthShow == true {
+                        isEarthShow = false
+                        Clouds = true
                     }
-                    
-                } label: {
-                    Text("Save the earth")
-                        .font(.largeTitle)
-                        .monospaced()
-                        .bold()
-                        .background(.green)
-                        .foregroundStyle(.white)
-                        .clipShape(.rect(cornerRadius: 10))
+                }
+                
+            } label: {
+                Text("Save the earth")
+                    .font(.largeTitle)
+                    .monospaced()
+                    .bold()
+                    .background(.green)
+                    .foregroundStyle(.white)
+                    .clipShape(.rect(cornerRadius: 10))
                 
             }
             
@@ -42,12 +42,25 @@ struct ContentView: View {
                     Image("Cloud")
                         .transition(.slide)
                 }
+                
+                NavigationLink{
+                    CheckpointView()
+                } label: {
+                    Text("Start")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.black)
+                    
+                }
+
+                
             }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    NavigationView{
+        ContentView()
+    }
 }
