@@ -31,8 +31,8 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .monospaced()
                     .bold()
-                    .background(.green)
-                    .foregroundStyle(.white)
+                    .background(Color.lightGreen)
+                    .foregroundStyle(.black)
                     .clipShape(.rect(cornerRadius: 10))
                 
             }

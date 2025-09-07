@@ -12,9 +12,24 @@ struct CompleteGameView: View {
     var body: some View {
         ZStack{
             SpriteView(scene: Fireworks(), options: [.allowsTransparency])
-            
-            Text("Congrats!")
+            VStack{
+                Text("Congrats!")
+                    .bold()
+                    .font(.system(size: 40))
+                Text("You've finished the game!!")
+                    .bold()
+                    .font(.system(size: 25))
+                
+                NavigationLink{
+                    CheckpointView()
+                } label: {
+                    Text("Checkpoints")
+                        .foregroundStyle(.blue)
+                        
+                }
+            }
         }
+        .ignoresSafeArea(edges: .all)
     }
 }
 
