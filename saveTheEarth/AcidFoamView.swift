@@ -88,7 +88,7 @@ struct AcidFoamView: View {
             }
             
             
-            if gameWon {
+            if gameWon == true {
                 
                 ZStack {
                     Rectangle()
@@ -108,10 +108,6 @@ struct AcidFoamView: View {
                             .foregroundColor(.white)
                             .padding(.top, 5)
                         
-                        Text("Final Score: \(points)")
-                            .font(.title3)
-                            .foregroundColor(.white)
-                            .padding(.top, 10)
                         
                         
                     }
@@ -129,6 +125,7 @@ struct AcidFoamView: View {
             self.points = newPoints
             if self.points >= 15 {
                 self.gameWon = true
+                self.umbrellaShown = false
             }
         }
         return scene
