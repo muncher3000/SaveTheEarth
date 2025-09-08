@@ -26,44 +26,45 @@ struct CheckpointView: View {
         Goal(name: "Avoid single-use plastics")
     ]
     var body: some View {
-        VStack{
-            ZStack{
-                LinearGradient(
-                       colors: [.lightBlue, .lightGreen, .lightBlue, .lightGreen],
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing
-                   )
-                .mask {
+        NavigationStack{
+            VStack{
+                ZStack{
+                    LinearGradient(
+                        colors: [.lightBlue, .lightGreen, .lightBlue, .lightGreen],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .mask {
                         Rectangle()
                             .frame(width: 250, height: 80)
                             .cornerRadius(20)
                             .foregroundStyle(Color(.lightBlue))
-                            
+                        
                     }
-                .padding(.bottom, 200)
-                Text("Checkpoints")
-                    .bold()
-                    .font(.largeTitle)
                     .padding(.bottom, 200)
-                VStack{
-                    Text("Goals:")
+                    Text("Checkpoints")
                         .bold()
-                        .font(.title)
-                      
-                    List(goals) {
+                        .font(.largeTitle)
+                        .padding(.bottom, 200)
+                    VStack{
+                        Text("Goals:")
+                            .bold()
+                            .font(.title)
+                        
+                        List(goals) {
                             Text($0.name)
                         }
-                    .padding(.bottom, 10)
-                    
+                        .padding(.bottom, 10)
+                        
+                    }
+                    .padding(.top, 200)
                 }
-                .padding(.top, 200)
-            }
-            
-            .ignoresSafeArea()
-            
-            
-            
-            ScrollView{
+                
+                .ignoresSafeArea()
+                
+                
+                
+                ScrollView{
                     ZStack{
                         Rectangle()
                             .frame(width: 350, height: 100)
@@ -150,13 +151,14 @@ struct CheckpointView: View {
                             .init(color: .clear, location: 1)
                         ]), startPoint: .top, endPoint: .bottom)
                     }
+                }
             }
         }
     }
 }
 
 #Preview {
-    NavigationView{
+ 
         CheckpointView()
-    }
+    
 }

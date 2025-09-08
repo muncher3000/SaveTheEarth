@@ -6,11 +6,33 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PianoTileGameView: View {
+    var sound = true
+    @State var audioPlayer: AVAudioPlayer!
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+                    Text("OMG SONGPLAYS YAAYYYAYAYAY")
+                }
+                .onAppear(perform: {
+                    playSounds("song.mp3")
+                })
+        .navigationBarBackButtonHidden(true)
     }
+    func playSounds(_ soundFileName : String) {
+            guard let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: nil) else {
+                fatalError("Unable to find \(soundFileName) in bundle")
+            }
+
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            } catch {
+                print(error.localizedDescription)
+            }
+            audioPlayer.play()
+        }
 }
 
 #Preview {

@@ -11,10 +11,10 @@ struct PianoTileView: View {
     @State private var index = 0
     @State private var text = ""
     private let stories = [
-        "The signboard has crushed the firestation, Toxic gas is beign released",
-        "Rumor has it that a legendary net can catch this special gas",
-        "But the net has been long gone, scattered in the city.",
-        "Find the peices and connect them"
+        "The signboard has crushed the firestation, Toxic gas is being released",
+        "An old man entrusted you with a net",
+        "It can stop the gas from polluting the water",
+        "Use it...."
     ]
     
     var body: some View {
