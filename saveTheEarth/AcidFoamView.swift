@@ -14,10 +14,12 @@ struct AcidFoamView: View {
     @State private var umbrellaShown: Bool = false
     @State private var points : Int = 0
     @State private var gameWon: Bool = false
+    @State private var rotation: Double = 0
+    @State private var numberOfPresses = 0
+    @State private var screwDrop = false
     
     var body: some View {
         ZStack{
-            
             Image("CityBackground")
                 .resizable()
                 .scaledToFit()
@@ -81,35 +83,73 @@ struct AcidFoamView: View {
                         }
                         Text("Instructions:")
                             .bold()
-                        Text("Acid rain will fall, use the umbrella to block it!")
+                        Text("use the umbrella to block the BIG Acid!")
                     }
                 }
                 .padding(.bottom, 100)
             }
             
-            
             if gameWon == true {
                 
                 ZStack {
                     Rectangle()
-                        .frame(width: 350, height: 200)
+                        .frame(width: 400, height: 200)
                         .foregroundStyle(.green)
                         .opacity(0.9)
                         .cornerRadius(20)
                     
                     VStack {
-                        Text("Congratulations!")
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundColor(.white)
-                        
-                        Text("yeppp")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .padding(.top, 5)
-                        
-                        
-                        
+                        HStack{
+                            Image("Screw")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50)
+                                .rotationEffect(.degrees(rotation))
+                                .animation(.easeIn(duration: 1.0), value: rotation)
+                                .offset(y: screwDrop ? 400 : 0)
+                            Text("Congratulations!")
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundColor(.white)
+
+                            Image("Screw")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50)
+                                .rotationEffect(.degrees(rotation))
+                                .animation(.easeIn(duration: 1.0), value: rotation)
+                                .offset(y: screwDrop ? 400 : 0)
+                            //how to make it slow down?: https://developer.apple.com/documentation/swiftui/animation/speed(_:)
+                        }
+                                        
+                        VStack{
+                            Button{
+                                rotation += 45
+                                numberOfPresses += 1
+                                
+                            }label:{
+                                Text("Pressme")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                            }
+                           
+
+                            if numberOfPresses == 10 {
+                                VStack{
+                                    Text("The signboard crushed the firestation, toxic gas is being released")
+                                        .bold()
+                                    NavigationLink{
+                                        PianoTileView()
+                                    }label:{
+                                        Text("Next")
+                                    }
+                                }
+                            }
+                        }.onChange(of: numberOfPresses) { print("\(numberOfPresses)")
+                            if numberOfPresses == 10 {
+                            screwDrop = true
+                        }
+                        }
                     }
                 }
             }
@@ -137,7 +177,9 @@ struct AcidFoamView: View {
 }
 
 #Preview {
-    AcidFoamView()
+    NavigationView{
+        AcidFoamView()
+    }
 }
 
 class RainFall : SKScene {
