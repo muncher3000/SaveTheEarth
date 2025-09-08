@@ -9,16 +9,27 @@ import SwiftUI
 import SpriteKit
 
 struct CompleteGameView: View {
+    let image1 = UIImage(named: "Earth12")
+    let image2 = UIImage(named: "terminate")
     var body: some View {
         ZStack{
             SpriteView(scene: Fireworks(), options: [.allowsTransparency])
             VStack{
-                Text("Congrats!")
+                Text("You couldn't save the world...")
                     .bold()
-                    .font(.system(size: 40))
-                Text("You've finished the game!!")
+                    .font(.system(size: 30))
+                Text("But you can try one last thing")
                     .bold()
                     .font(.system(size: 25))
+                Button("Save the Earth") {
+                    let imageSaver = ImageSaver()
+                    imageSaver.writeToPhotoAlbum(image: image1!)
+                }
+                .font(.system(size: 28))
+                .bold()
+                .background(Color.lightGreen)
+                .foregroundStyle(.black)
+                .clipShape(.rect(cornerRadius: 10))
                 
                 NavigationLink{
                     CheckpointView()
@@ -26,6 +37,10 @@ struct CompleteGameView: View {
                     Text("Checkpoints")
                         .foregroundStyle(.blue)
                         
+                }
+                Button("Secret bonus") {
+                    let imageSaver = ImageSaver()
+                    imageSaver.writeToPhotoAlbum(image: image2!)
                 }
             }
         }

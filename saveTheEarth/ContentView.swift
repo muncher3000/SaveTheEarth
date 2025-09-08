@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                     
                 } label: {
-                    Text("Save the earth")
+                    Text("Save the Earth")
                         .font(.largeTitle)
                         .monospaced()
                         .bold()
