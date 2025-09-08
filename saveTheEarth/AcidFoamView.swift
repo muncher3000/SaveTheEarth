@@ -91,6 +91,7 @@ struct AcidFoamView: View {
             
             if gameWon == true {
                 
+                
                 ZStack {
                     Rectangle()
                         .frame(width: 400, height: 200)
@@ -119,7 +120,7 @@ struct AcidFoamView: View {
                                 .rotationEffect(.degrees(rotation))
                                 .animation(.easeIn(duration: 1.0), value: rotation)
                                 .offset(y: screwDrop ? 400 : 0)
-                            //how to make it slow down?: https://developer.apple.com/documentation/swiftui/animation/speed(_:)
+                            //https://developer.apple.com/documentation/swiftui/animation/speed(_:)
                         }
                                         
                         VStack{
@@ -148,6 +149,7 @@ struct AcidFoamView: View {
                         }.onChange(of: numberOfPresses) { print("\(numberOfPresses)")
                             if numberOfPresses == 10 {
                             screwDrop = true
+                                
                         }
                         }
                     }
